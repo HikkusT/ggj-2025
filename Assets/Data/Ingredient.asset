@@ -23,6 +23,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    _affectsSound: 0
+    _sound: {fileID: 0}
   - _time: 20
     _affectsColor: 0
     _color: {r: 0.015686274, g: 1, b: 0.049653664, a: 0}
@@ -51,3 +53,5 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 4
+    _affectsSound: 0
+    _sound: {fileID: 0}

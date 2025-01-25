@@ -22,10 +22,14 @@ public class IngredientEffect
     
     [SerializeField] private bool _affectsBubbles;
     [SerializeField, ShowIf(nameof(_affectsBubbles))] private AnimationCurve _bubblesIntensity;
+
+    [SerializeField] private bool _affectsSound;
+    [SerializeField, ShowIf(nameof(_affectsSound))] private AudioClip _sound;
     
     public float Time => _time;
     
     public Color? Color => _affectsColor ? _color : null;
+    [CanBeNull] public AudioClip Sound => _affectsSound ? _sound : null;
 
     [CanBeNull] public AnimationCurve BubblesIntensity => _affectsBubbles ? _bubblesIntensity : null;
 }

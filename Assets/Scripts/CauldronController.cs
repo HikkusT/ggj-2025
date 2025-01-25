@@ -13,6 +13,7 @@ public class CauldronController : MonoBehaviour
     [SerializeField] private Renderer _liquidRenderer;
     [SerializeField] private Light _cauldronLight;
     [SerializeField] private ParticleSystem _bubbleParticles;
+    [SerializeField] private AudioSource _audioSource;
     
     [Header("Transitions")]
     [SerializeField] private float _transitionDurationInMillis;
@@ -65,8 +66,20 @@ public class CauldronController : MonoBehaviour
         {
             UpdateColor(effect.Color.Value, ct).Forget();
         }
+
+        if (effect.Sound != null)
+        {
+            UpdateSound(effect.Sound);
+        }
         
         UpdateBubbles(effect.BubblesIntensity, _currentTime, ct).Forget();
+    }
+
+    void UpdateSound(AudioClip clip)
+    {
+        _audioSource.clip = clip;
+        _audioSource.loop = true;
+        _audioSource.Play();
     }
 
     async UniTask UpdateColor(Color targetColor, CancellationToken ct)
