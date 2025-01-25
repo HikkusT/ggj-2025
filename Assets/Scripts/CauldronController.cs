@@ -23,7 +23,13 @@ public class CauldronController : MonoBehaviour
     private readonly Dictionary<Ingredient, IngredientTracking> _processingIngredients = new ();
     private Material _liquidMaterial => _liquidRenderer.material;
     float _currentTime = 0;
-    
+
+    private void Start()
+    {
+        var emission = _bubbleParticles.emission;
+        emission.rateOverTime = 0;
+    }
+
     void Update()
     {
         if (_processingIngredients.Count <= 0) return;
@@ -36,8 +42,8 @@ public class CauldronController : MonoBehaviour
                 if (tracking.ProcessedEffects.Contains(effect)) continue;
                 if (_currentTime - tracking.TimeWhenAdded < effect.Time) continue;
                 
-                ApplyEffect(effect);
                 tracking.TrackProcessed(effect);
+                ApplyEffect(effect, tracking.Cts.Token);
             }
         }
     }
@@ -53,21 +59,14 @@ public class CauldronController : MonoBehaviour
         _processingIngredients.Add(ingredient, new IngredientTracking(_currentTime));
     }
 
-    void ApplyEffect(IngredientEffect effect)
+    void ApplyEffect(IngredientEffect effect, CancellationToken ct)
     {
         if (effect.Color != null)
         {
-            UpdateColor(effect.Color.Value, this.GetCancellationTokenOnDestroy()).Forget();
+            UpdateColor(effect.Color.Value, ct).Forget();
         }
-
-        if (effect.BubblesIntensity != null)
-        {
-            // UpdateBubbles()
-        }
-        else
-        {
-            
-        }
+        
+        UpdateBubbles(effect.BubblesIntensity, _currentTime, ct).Forget();
     }
 
     async UniTask UpdateColor(Color targetColor, CancellationToken ct)
@@ -82,27 +81,32 @@ public class CauldronController : MonoBehaviour
                 Mathf.Clamp01((float)(DateTime.Now - start).TotalMilliseconds / _transitionDurationInMillis));
             _liquidMaterial.color = currentColor;
             _cauldronLight.color = currentColor;
-        } while (DateTime.Now - start < TimeSpan.FromSeconds(_transitionDurationInMillis));
+        } while (DateTime.Now - start < TimeSpan.FromMilliseconds(_transitionDurationInMillis));
     }
     
     async UniTask UpdateBubbles(AnimationCurve bubbleCurves, float startedAt, CancellationToken ct)
     {
-        // float beforeTransitionRate = _bubbleParticles.emission.rateOverTime.constant;
-        //
-        // DateTime start = DateTime.Now;
-        // do
-        // {
-        //     await UniTask.Yield(ct);
-        //     Color currentColor = Color.Lerp(beforeTransitionColor, targetColor,
-        //         Mathf.Clamp01((float)(DateTime.Now - start).TotalMilliseconds / _transitionDurationInMillis));
-        //     _liquidMaterial.color = currentColor;
-        //     _cauldronLight.color = currentColor;
-        // } while (DateTime.Now - start < TimeSpan.FromSeconds(_transitionDurationInMillis));
-        //
-        // while (!ct.IsCancellationRequested)
-        // {
-        //     _
-        // }
+        float beforeTransitionRate = _bubbleParticles.emission.rateOverTime.constant;
+        float target = bubbleCurves?.Evaluate(0) ?? 0f;
+        
+        DateTime start = DateTime.Now;
+        do
+        {
+            await UniTask.Yield(ct);
+            float currentEmissionRate = Mathf.Lerp(beforeTransitionRate, target,
+                Mathf.Clamp01((float)(DateTime.Now - start).TotalMilliseconds / _transitionDurationInMillis));
+            var emission = _bubbleParticles.emission;
+            emission.rateOverTime = currentEmissionRate;
+        } while (DateTime.Now - start < TimeSpan.FromMilliseconds(_transitionDurationInMillis));
+        
+        if (bubbleCurves == null) return;
+        
+        while (!ct.IsCancellationRequested)
+        {
+            var emission = _bubbleParticles.emission;
+            emission.rateOverTime = bubbleCurves.Evaluate(_currentTime - startedAt);
+            await UniTask.Yield(ct);
+        }
     }
     
     

@@ -16,3 +16,38 @@ MonoBehaviour:
   - _time: 10
     _affectsColor: 1
     _color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  - _time: 20
+    _affectsColor: 0
+    _color: {r: 0.015686274, g: 1, b: 0.049653664, a: 0}
+    _affectsBubbles: 1
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 4
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 5
+        value: 40
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 4
