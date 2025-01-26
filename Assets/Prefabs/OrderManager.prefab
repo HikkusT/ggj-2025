@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orderSignUI: {fileID: 0}
   _orderText: {fileID: 0}
+  _orderDelay: 5
   _recipes:
   - {fileID: 11400000, guid: 42164e4d774384cff904554cbf6c2d96, type: 2}

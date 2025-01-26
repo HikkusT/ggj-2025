@@ -7,9 +7,10 @@ public class BubbleTeaDeliver : MonoBehaviour
 
     public void Deliver(BubbleTea bubbleTea)
     {
-        if (bubbleTea.IsCorrect(orderManager.CurrentOrder.Recipe))
-        {
-            orderManager.CompleteOrder().Forget();
-        }
+        orderManager.CompleteOrder().Forget();
+        // if (bubbleTea.IsCorrect(orderManager.CurrentOrder.Recipe))
+        // {
+        //     orderManager.CompleteOrder().Forget();
+        // }
     }
 }
