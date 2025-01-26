@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 179a14428592d4cb6abc24fd1087601a, type: 3}
-  m_Name: FairyPowder
+  m_Name: CyclopEye
   m_EditorClassIdentifier: 
   _ingredientEffects:
-  - _time: 5
-    _affectsColor: 1
-    _color: {r: 0, g: 0.28627452, b: 0.3254902, a: 0}
+  - _time: 8
+    _affectsColor: 0
+    _color: {r: 0, g: 0, b: 0, a: 0}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2
@@ -23,11 +23,11 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-    _affectsSound: 0
-    _sound: {fileID: 0}
-  - _time: 20
-    _affectsColor: 1
-    _color: {r: 0.13333334, g: 0.54509807, b: 0.13333334, a: 0}
+    _affectsSound: 1
+    _sound: {fileID: 8300000, guid: 6cf40f3b4176f62418824a9893aacb1f, type: 3}
+  - _time: 9
+    _affectsColor: 0
+    _color: {r: 0, g: 0, b: 0, a: 0}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2
@@ -35,11 +35,11 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-    _affectsSound: 0
-    _sound: {fileID: 0}
-  - _time: 70
-    _affectsColor: 1
-    _color: {r: 0.22352941, g: 1, b: 0.078431375, a: 0}
+    _affectsSound: 1
+    _sound: {fileID: 8300000, guid: 4613898475c886843b5317bee085d8f9, type: 3}
+  - _time: 1
+    _affectsColor: 0
+    _color: {r: 0, g: 0, b: 0, a: 0}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2
@@ -47,5 +47,5 @@ MonoBehaviour:
       m_PreInfinity: 0
       m_PostInfinity: 0
       m_RotationOrder: 0
-    _affectsSound: 0
-    _sound: {fileID: 0}
+    _affectsSound: 1
+    _sound: {fileID: 8300000, guid: 4613898475c886843b5317bee085d8f9, type: 3}

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 179a14428592d4cb6abc24fd1087601a, type: 3}
-  m_Name: DrakeTabasco
+  m_Name: DragonsEgg
   m_EditorClassIdentifier: 
   _ingredientEffects:
-  - _time: 5
+  - _time: 40
     _affectsColor: 0
-    _color: {r: 0, g: 0, b: 0, a: 0}
+    _color: {r: 0.16470589, g: 0.16470589, b: 0.16470589, a: 0}
     _affectsBubbles: 1
     _bubblesIntensity:
       serializedVersion: 2
@@ -30,10 +30,10 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 10
-        value: 6
-        inSlope: 0
-        outSlope: 0
+        time: 2
+        value: 5
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
