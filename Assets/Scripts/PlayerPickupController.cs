@@ -1,3 +1,5 @@
+using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -7,10 +9,24 @@ namespace DefaultNamespace
         [SerializeField] private Transform _slot;
         [SerializeField] private GameObject _bubbleTeaView;
         
+        [Header("Debug")]
+        [SerializeField, ShowIf(nameof(HasBubbleTea))] private Color _color;
+        [SerializeField, ShowIf(nameof(HasBubbleTea))] private AudioClip _clip;
+        [SerializeField, ShowIf(nameof(HasBubbleTea))] private float _bubbleQuantity;
+        
         Interactable _currentInteractable;
         Pickable _grabbedPickable;
         BubbleTea _bubbleTea;
         
+        public bool HasBubbleTea => _bubbleTea != null;
+
+        private void Start()
+        {
+            _color = Color.black;
+            _clip = null;
+            _bubbleQuantity = 0;
+        }
+
         void Update()
         {
             if (Input.GetMouseButtonDown(0) && _currentInteractable != null)
@@ -43,6 +59,10 @@ namespace DefaultNamespace
                     {
                         _bubbleTeaView.SetActive(true);
                         _bubbleTea = bubbleTea;
+                        
+                        _color = _bubbleTea.Color;
+                        _clip = _bubbleTea.AudioClip;
+                        _bubbleQuantity = _bubbleTea.BubbleQtt;
                     }
                 }
                 else if (_bubbleTea != null && _currentInteractable.TryGetComponent(out BubbleTeaDeliver bubbleTeaDeliver))
@@ -50,6 +70,10 @@ namespace DefaultNamespace
                     bubbleTeaDeliver.Deliver(_bubbleTea);
                     _bubbleTeaView.SetActive(false);
                     _bubbleTea = null;
+                    
+                    _color = Color.black;
+                    _clip = null;
+                    _bubbleQuantity = 0;
                 }
             }
             
