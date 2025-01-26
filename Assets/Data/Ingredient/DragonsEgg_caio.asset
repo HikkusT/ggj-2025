@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 179a14428592d4cb6abc24fd1087601a, type: 3}
-  m_Name: DragonsEgg
+  m_Name: DragonsEgg_caio
   m_EditorClassIdentifier: 
   _ingredientEffects:
   - _time: 40
