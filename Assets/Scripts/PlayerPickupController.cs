@@ -8,6 +8,7 @@ namespace DefaultNamespace
     {
         [SerializeField] private Transform _slot;
         [SerializeField] private GameObject _bubbleTeaView;
+        [SerializeField] private Material _bubbleTeaMaterial;
         [SerializeField] private GameObject _interectionIcon;
         [SerializeField] private GameObject _deleteTooltip;
         
@@ -80,8 +81,11 @@ namespace DefaultNamespace
                     {
                         _bubbleTeaView.SetActive(true);
                         _bubbleTea = bubbleTea;
-                        
                         _color = _bubbleTea.Color;
+                        _color.a = _color.a * 0.85f;
+                        _bubbleTeaMaterial.color = _color;
+
+
                         _clip = _bubbleTea.AudioClip;
                         _bubbleQuantity = _bubbleTea.BubbleQtt;
                     }
