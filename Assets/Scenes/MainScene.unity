@@ -1009,6 +1009,22 @@ PrefabInstance:
       propertyPath: _orderSignUI
       value: 
       objectReference: {fileID: 1162060670}
+    - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
+      propertyPath: _recipes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
+      propertyPath: '_recipes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 42164e4d774384cff904554cbf6c2d96, type: 2}
+    - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
+      propertyPath: '_recipes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cc15e1cf69724a97be9af4fda17d32d, type: 2}
+    - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
+      propertyPath: '_recipes.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: afacca155fed15041bf9da9439c65caa, type: 2}
     - target: {fileID: 8120414026110755752, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
       propertyPath: m_Name
       value: DeliverSystem
@@ -1065,6 +1081,18 @@ PrefabInstance:
     - target: {fileID: 825319799803808552, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.638
       objectReference: {fileID: 0}
     - target: {fileID: 9200422055740530509, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
       propertyPath: m_Name
