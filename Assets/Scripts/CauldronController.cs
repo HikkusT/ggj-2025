@@ -14,6 +14,7 @@ public class CauldronController : MonoBehaviour
     [SerializeField] private Light _cauldronLight;
     [SerializeField] private ParticleSystem _bubbleParticles;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private ParticleSystem _steamParticles;
     
     [Header("Transitions")]
     [SerializeField] private float _transitionDurationInMillis;
@@ -59,6 +60,7 @@ public class CauldronController : MonoBehaviour
         }
         
         _processingIngredients.Add(ingredient, new IngredientTracking(_currentTime));
+        _steamParticles.Play();
     }
 
     public void Flush()
