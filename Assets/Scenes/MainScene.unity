@@ -1066,6 +1066,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701662145272656725, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.638
+      objectReference: {fileID: 0}
     - target: {fileID: 9200422055740530509, guid: 2a90af8a9f7314fc0a2d32f7611c72bc, type: 3}
       propertyPath: m_Name
       value: Ingredients
