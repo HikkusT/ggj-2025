@@ -5,15 +5,17 @@ namespace DefaultNamespace
     public class PlayerPickupController : MonoBehaviour
     {
         [SerializeField] private Transform _slot;
+        [SerializeField] private GameObject _bubbleTeaView;
         
         Interactable _currentInteractable;
         Pickable _grabbedPickable;
+        BubbleTea _bubbleTea;
         
         void Update()
         {
             if (Input.GetMouseButtonDown(0) && _currentInteractable != null)
             {
-                if (_currentInteractable.TryGetComponent(out Pickable pickable))
+                if (_grabbedPickable == null && _bubbleTea == null && _currentInteractable.TryGetComponent(out Pickable pickable))
                 {
                     _currentInteractable.TogglePickUpEffect(false);
                     
@@ -33,6 +35,21 @@ namespace DefaultNamespace
                     cauldronController.AddIngredient(_grabbedPickable.Ingredient);
                     Destroy(_grabbedPickable.gameObject);
                     _grabbedPickable = null;
+                }
+                else if (_bubbleTea == null && _currentInteractable.TryGetComponent(out CauldronController cauldronController2))
+                {
+                    BubbleTea bubbleTea = cauldronController2.FinishCooking();
+                    if (bubbleTea != null)
+                    {
+                        _bubbleTeaView.SetActive(true);
+                        _bubbleTea = bubbleTea;
+                    }
+                }
+                else if (_bubbleTea != null && _currentInteractable.TryGetComponent(out BubbleTeaDeliver bubbleTeaDeliver))
+                {
+                    bubbleTeaDeliver.Deliver(_bubbleTea);
+                    _bubbleTeaView.SetActive(false);
+                    _bubbleTea = null;
                 }
             }
             

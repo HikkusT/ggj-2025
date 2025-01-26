@@ -2,12 +2,19 @@
 
     public class BubbleTea
     {
-        private Color _color;
-        private AudioClip _audioClip;
-        private float _bubbleQtt;
+        public readonly Color Color;
+        public readonly AudioClip AudioClip;
+        public readonly float BubbleQtt;
+
+        public BubbleTea(Color color, AudioClip audioClip, float bubbleQtt)
+        {
+            Color = color;
+            AudioClip = audioClip;
+            BubbleQtt = bubbleQtt;
+        }
 
         public bool IsCorrect(Recipe recipe)
         {
-            return _color == recipe.Color && _audioClip == recipe.AudioClip && _bubbleQtt >= recipe.BubbleQttStart && _bubbleQtt <= recipe.BubbleQttEnd;
+            return Color == recipe.Color && AudioClip == recipe.AudioClip && BubbleQtt >= recipe.BubbleQttStart && BubbleQtt <= recipe.BubbleQttEnd;
         }
     }

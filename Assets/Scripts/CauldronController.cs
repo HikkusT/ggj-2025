@@ -60,6 +60,21 @@ public class CauldronController : MonoBehaviour
         _processingIngredients.Add(ingredient, new IngredientTracking(_currentTime));
     }
 
+    public BubbleTea FinishCooking()
+    {
+        if (_processingIngredients.Count == 0) return null;
+        
+        // TODO: Reset to initial state
+        foreach ((_, IngredientTracking tracking) in _processingIngredients)
+        {
+            tracking.Cts.Cancel();
+        }
+        _processingIngredients.Clear();
+
+        var emission = _bubbleParticles.emission;
+        return new BubbleTea(_liquidMaterial.color, _audioSource.clip, emission.rateOverTime.constant);
+    }
+
     void ApplyEffect(IngredientEffect effect, CancellationToken ct)
     {
         if (effect.Color != null)

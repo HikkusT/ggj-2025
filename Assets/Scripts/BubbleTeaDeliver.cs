@@ -5,7 +5,7 @@ public class BubbleTeaDeliver : MonoBehaviour
 {
     [SerializeField] private OrderManager orderManager;
 
-    void Deliver(BubbleTea bubbleTea)
+    public void Deliver(BubbleTea bubbleTea)
     {
         if (bubbleTea.IsCorrect(orderManager.CurrentOrder.Recipe))
         {
