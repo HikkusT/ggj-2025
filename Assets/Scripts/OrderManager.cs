@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class OrderManager : MonoBehaviour
 {
     [SerializeField] private Pulsable _orderSignUI;
+    [SerializeField] private Clock _clock;
+    [SerializeField] private int _extraTime;
     [SerializeField] private Text _orderText;
+    [SerializeField] private Text _scoreText;
     [SerializeField] private float _orderDelay;
     public Order CurrentOrder = null;
     private int _orderNumber = 0;
@@ -17,6 +20,7 @@ public class OrderManager : MonoBehaviour
     bool _readyForNewOrder = true;
     private void Update()
     {
+        _scoreText.text = _score + " orders";
         if (CurrentOrder == null && _readyForNewOrder)
         {
             var recipe = _recipes[_orderNumber % _recipes.Count];
@@ -28,6 +32,7 @@ public class OrderManager : MonoBehaviour
 
     public async UniTaskVoid CompleteOrder()
     {
+        _clock.IncrementTime(_extraTime);
         CurrentOrder = null;
         _score++;
         _orderNumber++;
