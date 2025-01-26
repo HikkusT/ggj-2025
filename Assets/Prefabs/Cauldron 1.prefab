@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c089a4ed89d40f1a77b8395b06a58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialCauldronColor: {r: 0.8980392, g: 0.8784314, b: 0.4627451, a: 1}
+  _initialCauldronColor: {r: 0.754717, g: 0.75134945, b: 0.6799573, a: 1}
   _liquidRenderer: {fileID: 6711551420620087407}
   _cauldronLight: {fileID: 5610549645037637668}
   _bubbleParticles: {fileID: 7352009998982423771}
@@ -475,6 +475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 8077311026119969007}
+  _isoutlineAlwaysOn: 0
+  _baseColor: {r: 0, g: 0, b: 0, a: 0}
+  _targetedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &2983360682178804153
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8120414026110755752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9efbb9ab72a74f2cbbd8f3bcb1c85c0e, type: 3}
   m_Name: 
@@ -289,6 +289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _outline: {fileID: 2807640916695137444}
+  _isoutlineAlwaysOn: 0
+  _baseColor: {r: 0, g: 0, b: 0, a: 0}
+  _targetedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &5207569432001812350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -340,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 633045646759032798, guid: 379ba1c79af034adebf41a6b5db3ad34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732861806733229082, guid: 379ba1c79af034adebf41a6b5db3ad34, type: 3}
+      propertyPath: _extraTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6732861806733229082, guid: 379ba1c79af034adebf41a6b5db3ad34, type: 3}
       propertyPath: _orderDelay

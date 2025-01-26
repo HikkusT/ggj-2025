@@ -1362,6 +1362,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1162060664}
     - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
+      propertyPath: _scoreText
+      value: 
+      objectReference: {fileID: 649150476}
+    - target: {fileID: 1525294115318033252, guid: bc196fbf865d74755b4b52d46aa3a8ec, type: 3}
       propertyPath: _orderSignUI
       value: 
       objectReference: {fileID: 1162060670}
