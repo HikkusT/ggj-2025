@@ -17,6 +17,7 @@ public class BubbleTeaDeliver : MonoBehaviour
         }
         else
         {
+            orderManager.FailOrder();
             audioSource.PlayOneShot(failSound);
         }
     }
