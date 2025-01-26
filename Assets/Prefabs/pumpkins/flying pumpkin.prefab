@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bad6a15c07f2b42b6203d2cd4a0ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 2.6
   speed: 0.5
-  minHeight: 0
-  maxHeight: 1
+  minHeight: 1
+  maxHeight: 3
   heightSpeed: 0.6
   pumpkinRotationSpeed: 45
   pumpkinTransform: {fileID: 5186543044964628177}
@@ -66,12 +66,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bad6a15c07f2b42b6203d2cd4a0ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  speed: 1
-  minHeight: 0
-  maxHeight: 2
+  radius: 2.6
+  speed: 0.8
+  minHeight: 1
+  maxHeight: 3
   heightSpeed: 0.6
-  pumpkinRotationSpeed: 55
+  pumpkinRotationSpeed: 45
   pumpkinTransform: {fileID: 5186543044964628177}
 --- !u!1 &6966717663596681296
 GameObject:
@@ -244,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d535c5202cbe2d74a807f28818fc0958, type: 3}
       propertyPath: m_Name
-      value: pumpkin
+      value: pumpkin 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

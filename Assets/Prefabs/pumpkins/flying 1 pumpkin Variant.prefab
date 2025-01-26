@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6725184954906736346
+--- !u!1001 &1773419156028347928
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,24 +9,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 473840849815547895, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      propertyPath: speed
-      value: 0.5
+      propertyPath: radius
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 473840849815547895, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      propertyPath: pumpkinRotationSpeed
-      value: -45
+      propertyPath: maxHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 473840849815547895, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
+      propertyPath: minHeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1177376762352747020, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.6159973
       objectReference: {fileID: 0}
     - target: {fileID: 1177376762352747020, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 1177376762352747020, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.0439997
       objectReference: {fileID: 0}
     - target: {fileID: 1177376762352747020, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -56,56 +60,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5526371699640233067, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      propertyPath: m_Name
-      value: pumpkin
-      objectReference: {fileID: 0}
     - target: {fileID: 6608963775206227340, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
       propertyPath: m_Name
-      value: flying pumpkin reverse Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 6770313123314563823, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      propertyPath: m_Intensity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6966717663596681296, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      propertyPath: m_Name
-      value: pumpkin_light
+      value: flying 1 pumpkin Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6608963775206227340, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2887900382498714971}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
---- !u!1 &496356503021882198 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6608963775206227340, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-  m_PrefabInstance: {fileID: 6725184954906736346}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2887900382498714971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496356503021882198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bad6a15c07f2b42b6203d2cd4a0ea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 3
-  speed: -1
-  minHeight: 0
-  maxHeight: 2
-  heightSpeed: 0.6
-  pumpkinRotationSpeed: -55
-  pumpkinTransform: {fileID: 1922726423507222539}
---- !u!4 &1922726423507222539 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5186543044964628177, guid: fcd59a4fac32bd549950987827d9b8b3, type: 3}
-  m_PrefabInstance: {fileID: 6725184954906736346}
-  m_PrefabAsset: {fileID: 0}
