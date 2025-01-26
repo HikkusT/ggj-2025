@@ -4,13 +4,20 @@ using UnityEngine;
 public class BubbleTeaDeliver : MonoBehaviour
 {
     [SerializeField] private OrderManager orderManager;
+    [SerializeField] private AudioClip correctSound;
+    [SerializeField] private AudioClip failSound;
+    [SerializeField] private AudioSource audioSource;
 
     public void Deliver(BubbleTea bubbleTea)
     {
-        orderManager.CompleteOrder().Forget();
-        // if (bubbleTea.IsCorrect(orderManager.CurrentOrder.Recipe))
-        // {
-        //     orderManager.CompleteOrder().Forget();
-        // }
+        if (bubbleTea.IsCorrect(orderManager.CurrentOrder.Recipe))
+        {
+            audioSource.PlayOneShot(correctSound);
+            orderManager.CompleteOrder().Forget();
+        }
+        else
+        {
+            audioSource.PlayOneShot(failSound);
+        }
     }
 }
