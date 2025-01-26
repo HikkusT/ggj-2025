@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17497c33b3b648288ebc03abc849528f, type: 3}
   m_Name: DragonsKissRecipe
   m_EditorClassIdentifier: 
-  Color: {r: 1, g: 0, b: 0, a: 0}
+  Color: {r: 1, g: 0, b: 0, a: 1}
   AudioClip: {fileID: 8300000, guid: c247ec22610c64f45a8daeea9dd59cff, type: 3}
   BubbleQttStart: 4
   BubbleQttEnd: 8
