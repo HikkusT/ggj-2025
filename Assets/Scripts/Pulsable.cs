@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class UIPulsate : MonoBehaviour
+public class Pulsable : MonoBehaviour
 {
     public Image uiElement; // O elemento de UI que vai piscar
     public Color flashColor = Color.red; // A cor do "piscar"

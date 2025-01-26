@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class OrderManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _orderSignUI;
+    [SerializeField] private Pulsable _orderSignUI;
     [SerializeField] private Text _orderText;
     [SerializeField] private float _orderDelay;
     public Order CurrentOrder = null;
@@ -21,7 +21,7 @@ public class OrderManager : MonoBehaviour
         {
             var recipe = _recipes[_orderNumber % _recipes.Count];
             CurrentOrder = new Order(recipe, DateTime.Now + new TimeSpan(0, 2, 0));
-            _orderSignUI.SetActive(true);
+            _orderSignUI.gameObject.SetActive(true);
             _orderText.text = recipe.RecipeName;
         }
     }
@@ -31,9 +31,14 @@ public class OrderManager : MonoBehaviour
         CurrentOrder = null;
         _score++;
         _orderNumber++;
-        _orderSignUI.SetActive(false);
+        _orderSignUI.gameObject.SetActive(false);
         _readyForNewOrder = false;
         await UniTask.Delay(TimeSpan.FromSeconds(_orderDelay));
         _readyForNewOrder = true;
+    }
+
+    public void FailOrder()
+    {
+        _orderSignUI.FlashUI();
     }
 }
