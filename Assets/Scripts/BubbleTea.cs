@@ -6,7 +6,7 @@
         private AudioClip _audioClip;
         private float _bubbleQtt;
 
-        bool IsCorrect(Recipe recipe)
+        public bool IsCorrect(Recipe recipe)
         {
             return _color == recipe.Color && _audioClip == recipe.AudioClip && _bubbleQtt >= recipe.BubbleQttStart && _bubbleQtt <= recipe.BubbleQttEnd;
         }

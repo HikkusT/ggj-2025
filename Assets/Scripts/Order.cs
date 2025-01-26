@@ -3,11 +3,11 @@ using System;
 public class Order
 {
     private DateTime _endTime;
-    private Recipe _recipe;
+    public Recipe Recipe;
 
     public Order(Recipe recipe, DateTime endTime)
     {
-        _recipe = recipe;
+        Recipe = recipe;
         _endTime = endTime;
     }
 }
