@@ -24,4 +24,4 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
     _affectsSound: 1
-    _sound: {fileID: 8300000, guid: 6ab83da1577f84d4086d3dea64aaadab, type: 3}
+    _sound: {fileID: 8300000, guid: 0dc1da3774b7d431aadcc0d90b1fe97a, type: 3}

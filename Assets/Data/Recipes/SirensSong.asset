@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SirensSong
   m_EditorClassIdentifier: 
   Color: {r: 0, g: 1, b: 1, a: 1}
-  AudioClip: {fileID: 8300000, guid: 0c5120be1e4a848539ea8edfaed33bf6, type: 3}
+  AudioClip: {fileID: 8300000, guid: 1a6931d3b176c42ff8a0baba826e092a, type: 3}
   BubbleQttStart: 2
   BubbleQttEnd: 0
   RecipeName: Sirens Song
