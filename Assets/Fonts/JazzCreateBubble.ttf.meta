@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 58b647c5b2ec4184e9a07a561cdf0644
+AssetOrigin:
+  serializedVersion: 1
+  productId: 24987
+  packageName: Font Jazz Create Bubble
+  packageVersion: 2.0
+  assetPath: Assets/Fonts/JazzCreateBubble.ttf
+  uploadId: 113187
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 100
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - JazzCreateBubble
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
