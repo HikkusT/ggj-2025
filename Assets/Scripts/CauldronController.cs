@@ -68,6 +68,8 @@ public class CauldronController : MonoBehaviour
             tracking.Cts.Cancel();
         }
         _processingIngredients.Clear();
+        
+        ResetCauldron();
     }
 
     public BubbleTea FinishCooking()

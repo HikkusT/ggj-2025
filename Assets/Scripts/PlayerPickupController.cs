@@ -97,8 +97,17 @@ namespace DefaultNamespace
                     _bubbleQuantity = 0;
                 }
             }
-            
-            if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 5f)) return;
+
+            if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 5f))
+            {
+                if (_currentInteractable != null)
+                {
+                    _currentInteractable.TogglePickUpEffect(false);
+                    _currentInteractable = null;
+                    _interectionIcon.SetActive(false);
+                }
+                return;
+            }
 
             if (hit.collider.TryGetComponent(out Interactable interactable))
             {
