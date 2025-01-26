@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17497c33b3b648288ebc03abc849528f, type: 3}
   m_Name: BasiliskBreath
   m_EditorClassIdentifier: 
-  Color: {r: 0.13333334, g: 0.54509807, b: 0.13333334, a: 0}
+  Color: {r: 0.13333334, g: 0.54509807, b: 0.13333334, a: 1}
   AudioClip: {fileID: 8300000, guid: a076354ed61cc4272a104ec836daf80c, type: 3}
   BubbleQttStart: 6
   BubbleQttEnd: 10
