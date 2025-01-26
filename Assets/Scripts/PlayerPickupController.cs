@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace DefaultNamespace
         [SerializeField] private Material _bubbleTeaMaterial;
         [SerializeField] private GameObject _interectionIcon;
         [SerializeField] private GameObject _deleteTooltip;
+        [SerializeField] private List<Interactable> _possibleDeliverPlaces;
         
         [Header("Debug")]
         [SerializeField, ShowIf(nameof(HasBubbleTea))] private Color _color;
@@ -84,6 +86,9 @@ namespace DefaultNamespace
                         _color = _bubbleTea.Color;
                         _color.a = _color.a * 0.85f;
                         _bubbleTeaMaterial.color = _color;
+                        
+                        int randomDeliverIndex = UnityEngine.Random.Range(0, _possibleDeliverPlaces.Count);
+                        _possibleDeliverPlaces[randomDeliverIndex].enabled = true;
 
 
                         _clip = _bubbleTea.AudioClip;
@@ -95,6 +100,11 @@ namespace DefaultNamespace
                     bubbleTeaDeliver.Deliver(_bubbleTea);
                     _bubbleTeaView.SetActive(false);
                     _bubbleTea = null;
+
+                    foreach (var deliverPlace in _possibleDeliverPlaces)
+                    {
+                        deliverPlace.enabled = false;
+                    }
                     
                     _color = Color.black;
                     _clip = null;
@@ -113,7 +123,7 @@ namespace DefaultNamespace
                 return;
             }
 
-            if (hit.collider.TryGetComponent(out Interactable interactable))
+            if (hit.collider.TryGetComponent(out Interactable interactable) && interactable.enabled)
             {
                 if (_currentInteractable == interactable) return;
 

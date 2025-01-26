@@ -95,8 +95,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slot: {fileID: 2185686657706660844}
   _bubbleTeaView: {fileID: 7503275479155895194}
+  _bubbleTeaMaterial: {fileID: 2100000, guid: 652566648dd1eed4c8f58a48e50b3a7e, type: 2}
   _interectionIcon: {fileID: 0}
   _deleteTooltip: {fileID: 0}
+  _possibleDeliverPlaces:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _color: {r: 0, g: 0, b: 0, a: 0}
   _clip: {fileID: 0}
   _bubbleQuantity: 0
