@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179a14428592d4cb6abc24fd1087601a, type: 3}
+  m_Name: SeaMonsterFang
+  m_EditorClassIdentifier: 
+  _ingredientEffects:
+  - _time: 0
+    _affectsColor: 1
+    _color: {r: 1, g: 0, b: 0, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 5
+    _affectsColor: 1
+    _color: {r: 1, g: 0.5591407, b: 0, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 10
+    _affectsColor: 1
+    _color: {r: 1, g: 0.9933062, b: 0, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 15
+    _affectsColor: 1
+    _color: {r: 0.54594266, g: 1, b: 0, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 20
+    _affectsColor: 1
+    _color: {r: 0, g: 1, b: 0.82002234, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 25
+    _affectsColor: 1
+    _color: {r: 0, g: 0.30787992, b: 1, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 30
+    _affectsColor: 1
+    _color: {r: 0.6739578, g: 0, b: 1, a: 1}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   _ingredientEffects:
   - _time: 5
     _affectsColor: 1
-    _color: {r: 0, g: 0.28627452, b: 0.3254902, a: 0}
+    _color: {r: 0, g: 0.28627452, b: 0.3254902, a: 1}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2
@@ -27,7 +27,7 @@ MonoBehaviour:
     _sound: {fileID: 0}
   - _time: 20
     _affectsColor: 1
-    _color: {r: 0.13333334, g: 0.54509807, b: 0.13333334, a: 0}
+    _color: {r: 0.13333334, g: 0.54509807, b: 0.13333334, a: 1}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2

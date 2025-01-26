@@ -15,7 +15,7 @@ MonoBehaviour:
   _ingredientEffects:
   - _time: 1
     _affectsColor: 1
-    _color: {r: 0.14289072, g: 0.15438, b: 0.17735851, a: 0}
+    _color: {r: 0.14289072, g: 0.15438, b: 0.17735851, a: 1}
     _affectsBubbles: 0
     _bubblesIntensity:
       serializedVersion: 2

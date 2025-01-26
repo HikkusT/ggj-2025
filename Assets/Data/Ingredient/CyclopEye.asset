@@ -12,4 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179a14428592d4cb6abc24fd1087601a, type: 3}
   m_Name: CyclopEye
   m_EditorClassIdentifier: 
-  _ingredientEffects: []
+  _ingredientEffects:
+  - _time: 0
+    _affectsColor: 1
+    _color: {r: 1, g: 0.3537736, b: 0.365044, a: 0}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 10
+    _affectsColor: 1
+    _color: {r: 1, g: 0, b: 0, a: 0}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}
+  - _time: 15
+    _affectsColor: 1
+    _color: {r: 1, g: 0.3537736, b: 0.365044, a: 0}
+    _affectsBubbles: 0
+    _bubblesIntensity:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    _affectsSound: 0
+    _sound: {fileID: 0}

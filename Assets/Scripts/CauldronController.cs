@@ -14,6 +14,7 @@ public class CauldronController : MonoBehaviour
     [SerializeField] private Light _cauldronLight;
     [SerializeField] private ParticleSystem _bubbleParticles;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private ParticleSystem _steamParticles;
     
     [Header("Transitions")]
     [SerializeField] private float _transitionDurationInMillis;
@@ -29,6 +30,7 @@ public class CauldronController : MonoBehaviour
     {
         var emission = _bubbleParticles.emission;
         emission.rateOverTime = 0;
+        ResetCauldron();
     }
 
     void Update()
@@ -58,13 +60,24 @@ public class CauldronController : MonoBehaviour
         }
         
         _processingIngredients.Add(ingredient, new IngredientTracking(_currentTime));
+        _steamParticles.Play();
+    }
+
+    public void Flush()
+    {
+        foreach ((_, IngredientTracking tracking) in _processingIngredients)
+        {
+            tracking.Cts.Cancel();
+        }
+        _processingIngredients.Clear();
+        
+        ResetCauldron();
     }
 
     public BubbleTea FinishCooking()
     {
         if (_processingIngredients.Count == 0) return null;
         
-        // TODO: Reset to initial state
         foreach ((_, IngredientTracking tracking) in _processingIngredients)
         {
             tracking.Cts.Cancel();
@@ -72,7 +85,11 @@ public class CauldronController : MonoBehaviour
         _processingIngredients.Clear();
 
         var emission = _bubbleParticles.emission;
-        return new BubbleTea(_liquidMaterial.color, _audioSource.clip, emission.rateOverTime.constant);
+        var result = new BubbleTea(_liquidMaterial.color, _audioSource.clip, emission.rateOverTime.constant);
+
+        ResetCauldron();
+        
+        return result;
     }
 
     void ApplyEffect(IngredientEffect effect, CancellationToken ct)
@@ -109,6 +126,8 @@ public class CauldronController : MonoBehaviour
                 Mathf.Clamp01((float)(DateTime.Now - start).TotalMilliseconds / _transitionDurationInMillis));
             _liquidMaterial.color = currentColor;
             _cauldronLight.color = currentColor;
+            var mainModule = _bubbleParticles.main;
+            mainModule.startColor = currentColor;
         } while (DateTime.Now - start < TimeSpan.FromMilliseconds(_transitionDurationInMillis));
     }
     
@@ -135,6 +154,18 @@ public class CauldronController : MonoBehaviour
             emission.rateOverTime = bubbleCurves.Evaluate(_currentTime - startedAt);
             await UniTask.Yield(ct);
         }
+    }
+
+    public void ResetCauldron()
+    {
+        _liquidMaterial.color = _initialCauldronColor;
+        _cauldronLight.color = _initialCauldronColor;
+        var emission = _bubbleParticles.emission;
+        emission.rateOverTime = 0;
+        var mainModule = _bubbleParticles.main;
+        mainModule.startColor = _initialCauldronColor;
+        _audioSource.Stop();
+        _audioSource.clip = null;
     }
     
     

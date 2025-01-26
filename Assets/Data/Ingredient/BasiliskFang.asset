@@ -36,7 +36,7 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
     _affectsSound: 1
-    _sound: {fileID: 8300000, guid: a076354ed61cc4272a104ec836daf80c, type: 3}
+    _sound: {fileID: 8300000, guid: 9ffbf9a099500450a871f7bf1da3587d, type: 3}
   - _time: 45
     _affectsColor: 0
     _color: {r: 0, g: 0, b: 0, a: 0}
@@ -48,4 +48,4 @@ MonoBehaviour:
       m_PostInfinity: 0
       m_RotationOrder: 0
     _affectsSound: 1
-    _sound: {fileID: 8300000, guid: a076354ed61cc4272a104ec836daf80c, type: 3}
+    _sound: {fileID: 8300000, guid: 4b81e9caaaacd744db33e2a106533e25, type: 3}

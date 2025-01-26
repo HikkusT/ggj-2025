@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -8,6 +9,10 @@ namespace DefaultNamespace
     {
         [SerializeField] private Transform _slot;
         [SerializeField] private GameObject _bubbleTeaView;
+        [SerializeField] private Material _bubbleTeaMaterial;
+        [SerializeField] private GameObject _interectionIcon;
+        [SerializeField] private GameObject _deleteTooltip;
+        [SerializeField] private List<Interactable> _possibleDeliverPlaces;
         
         [Header("Debug")]
         [SerializeField, ShowIf(nameof(HasBubbleTea))] private Color _color;
@@ -29,6 +34,22 @@ namespace DefaultNamespace
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (_grabbedPickable != null)
+                {
+                    Destroy(_grabbedPickable.gameObject);
+                    _grabbedPickable = null;
+                    _deleteTooltip.SetActive(false);
+                }
+
+                if (_currentInteractable != null &&
+                    _currentInteractable.TryGetComponent(out CauldronController cauldronController))
+                {
+                    cauldronController.Flush();
+                }
+            }
+            
             if (Input.GetMouseButtonDown(0) && _currentInteractable != null)
             {
                 if (_grabbedPickable == null && _bubbleTea == null && _currentInteractable.TryGetComponent(out Pickable pickable))
@@ -44,13 +65,16 @@ namespace DefaultNamespace
                     // _slot.localScale = (0.5f / Mathf.Max(size.x, Mathf.Max(size.y, size.z))) * Vector3.one;
 
                     _currentInteractable = null;
+                    _interectionIcon.SetActive(false);
                     _grabbedPickable = grabbedPickable;
+                    _deleteTooltip.SetActive(true);
                 }
                 else if (_grabbedPickable != null && _currentInteractable.TryGetComponent(out CauldronController cauldronController))
                 {
                     cauldronController.AddIngredient(_grabbedPickable.Ingredient);
                     Destroy(_grabbedPickable.gameObject);
                     _grabbedPickable = null;
+                    _deleteTooltip.SetActive(false);
                 }
                 else if (_bubbleTea == null && _currentInteractable.TryGetComponent(out CauldronController cauldronController2))
                 {
@@ -59,8 +83,14 @@ namespace DefaultNamespace
                     {
                         _bubbleTeaView.SetActive(true);
                         _bubbleTea = bubbleTea;
-                        
                         _color = _bubbleTea.Color;
+                        _color.a = _color.a * 0.85f;
+                        _bubbleTeaMaterial.color = _color;
+                        
+                        int randomDeliverIndex = UnityEngine.Random.Range(0, _possibleDeliverPlaces.Count);
+                        _possibleDeliverPlaces[randomDeliverIndex].enabled = true;
+
+
                         _clip = _bubbleTea.AudioClip;
                         _bubbleQuantity = _bubbleTea.BubbleQtt;
                     }
@@ -70,16 +100,30 @@ namespace DefaultNamespace
                     bubbleTeaDeliver.Deliver(_bubbleTea);
                     _bubbleTeaView.SetActive(false);
                     _bubbleTea = null;
+
+                    foreach (var deliverPlace in _possibleDeliverPlaces)
+                    {
+                        deliverPlace.enabled = false;
+                    }
                     
                     _color = Color.black;
                     _clip = null;
                     _bubbleQuantity = 0;
                 }
             }
-            
-            if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 5f)) return;
 
-            if (hit.collider.TryGetComponent(out Interactable interactable))
+            if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 5f))
+            {
+                if (_currentInteractable != null)
+                {
+                    _currentInteractable.TogglePickUpEffect(false);
+                    _currentInteractable = null;
+                    _interectionIcon.SetActive(false);
+                }
+                return;
+            }
+
+            if (hit.collider.TryGetComponent(out Interactable interactable) && interactable.enabled)
             {
                 if (_currentInteractable == interactable) return;
 
@@ -90,11 +134,13 @@ namespace DefaultNamespace
                 
                 interactable.TogglePickUpEffect(true);
                 _currentInteractable = interactable;
+                _interectionIcon.SetActive(true);
             }
             else if (_currentInteractable != null)
             {
                 _currentInteractable.TogglePickUpEffect(false);
                 _currentInteractable = null;
+                _interectionIcon.SetActive(false);
             }
         }
     }
