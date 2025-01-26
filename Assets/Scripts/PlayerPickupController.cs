@@ -8,6 +8,8 @@ namespace DefaultNamespace
     {
         [SerializeField] private Transform _slot;
         [SerializeField] private GameObject _bubbleTeaView;
+        [SerializeField] private GameObject _interectionIcon;
+        [SerializeField] private GameObject _deleteTooltip;
         
         [Header("Debug")]
         [SerializeField, ShowIf(nameof(HasBubbleTea))] private Color _color;
@@ -29,6 +31,22 @@ namespace DefaultNamespace
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (_grabbedPickable != null)
+                {
+                    Destroy(_grabbedPickable.gameObject);
+                    _grabbedPickable = null;
+                    _deleteTooltip.SetActive(false);
+                }
+
+                if (_currentInteractable != null &&
+                    _currentInteractable.TryGetComponent(out CauldronController cauldronController))
+                {
+                    cauldronController.Flush();
+                }
+            }
+            
             if (Input.GetMouseButtonDown(0) && _currentInteractable != null)
             {
                 if (_grabbedPickable == null && _bubbleTea == null && _currentInteractable.TryGetComponent(out Pickable pickable))
@@ -44,13 +62,16 @@ namespace DefaultNamespace
                     // _slot.localScale = (0.5f / Mathf.Max(size.x, Mathf.Max(size.y, size.z))) * Vector3.one;
 
                     _currentInteractable = null;
+                    _interectionIcon.SetActive(false);
                     _grabbedPickable = grabbedPickable;
+                    _deleteTooltip.SetActive(true);
                 }
                 else if (_grabbedPickable != null && _currentInteractable.TryGetComponent(out CauldronController cauldronController))
                 {
                     cauldronController.AddIngredient(_grabbedPickable.Ingredient);
                     Destroy(_grabbedPickable.gameObject);
                     _grabbedPickable = null;
+                    _deleteTooltip.SetActive(false);
                 }
                 else if (_bubbleTea == null && _currentInteractable.TryGetComponent(out CauldronController cauldronController2))
                 {
@@ -90,11 +111,13 @@ namespace DefaultNamespace
                 
                 interactable.TogglePickUpEffect(true);
                 _currentInteractable = interactable;
+                _interectionIcon.SetActive(true);
             }
             else if (_currentInteractable != null)
             {
                 _currentInteractable.TogglePickUpEffect(false);
                 _currentInteractable = null;
+                _interectionIcon.SetActive(false);
             }
         }
     }

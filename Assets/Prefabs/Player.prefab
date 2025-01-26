@@ -95,6 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slot: {fileID: 2185686657706660844}
   _bubbleTeaView: {fileID: 7503275479155895194}
+  _interectionIcon: {fileID: 0}
+  _deleteTooltip: {fileID: 0}
   _color: {r: 0, g: 0, b: 0, a: 0}
   _clip: {fileID: 0}
   _bubbleQuantity: 0
@@ -246,6 +248,10 @@ PrefabInstance:
     - target: {fileID: 114014416615829144, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
       propertyPath: DefaultDistance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114014416615829144, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
+      propertyPath: FollowPointFraming.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114014416615829144, guid: c75e91cf060bbf04e89204fa400606df, type: 3}
       propertyPath: ObstructionLayers.m_Bits

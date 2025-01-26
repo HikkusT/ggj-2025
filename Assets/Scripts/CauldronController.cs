@@ -60,6 +60,15 @@ public class CauldronController : MonoBehaviour
         _processingIngredients.Add(ingredient, new IngredientTracking(_currentTime));
     }
 
+    public void Flush()
+    {
+        foreach ((_, IngredientTracking tracking) in _processingIngredients)
+        {
+            tracking.Cts.Cancel();
+        }
+        _processingIngredients.Clear();
+    }
+
     public BubbleTea FinishCooking()
     {
         if (_processingIngredients.Count == 0) return null;
